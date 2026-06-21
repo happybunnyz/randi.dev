@@ -89,6 +89,24 @@
   .reassure { margin-top: 18px; font-size: .9rem; color: var(--fg-soft); display: flex; flex-wrap: wrap; gap: 18px; }
   .reassure span { display: inline-flex; align-items: center; gap: 7px; }
   .reassure svg { color: var(--secondary); flex: none; }
+  .hero-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 48px; align-items: center; }
+  .hero-visual { min-width: 0; }
+  .terminal { width: 100%; max-width: 440px; margin-inline: auto; background: #0D1117; border: 1px solid #21262D; border-radius: 14px; box-shadow: var(--shadow-lg); overflow: hidden; font-family: var(--mono); font-size: .82rem; }
+  .term-bar { display: flex; align-items: center; gap: 7px; padding: 11px 14px; background: #161B22; border-bottom: 1px solid #21262D; }
+  .tdot { width: 11px; height: 11px; border-radius: 50%; flex: none; }
+  .tdot.r { background: #FF5F56; } .tdot.y { background: #FFBD2E; } .tdot.g { background: #27C93F; }
+  .term-file { margin-left: 8px; color: #6E7681; font-size: .73rem; }
+  .term-body { padding: 16px 16px 18px; display: flex; flex-direction: column; gap: 7px; line-height: 1.5; }
+  .tline { color: #ADBAC7; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .tline .tts { color: #6E7681; margin-right: 10px; }
+  .tline .x { color: #FF7B72; font-weight: 700; margin-right: 8px; }
+  .tline .c { color: #3FB950; font-weight: 700; margin-right: 8px; }
+  .tline.ok { color: #7EE2A8; }
+  .tline.cmd { color: #E6EDF3; margin: 8px 0 6px; }
+  .tline.cmd .prompt { color: #A78BFA; font-weight: 700; margin-right: 8px; }
+  .caret { display: inline-block; width: 8px; height: 1.05em; background: #A78BFA; margin-left: 3px; vertical-align: text-bottom; animation: blink 1.1s steps(1) infinite; }
+  @keyframes blink { 0%, 50% { opacity: 1; } 50.01%, 100% { opacity: 0; } }
+  @media (max-width: 860px) { .hero-grid { grid-template-columns: 1fr; gap: 36px; } }
 
   /* ---------- sections ---------- */
   section { padding: 56px 0; }
@@ -164,9 +182,9 @@
     .reveal { opacity: 1; transform: none; }
   }
 
-  [data-en] { display: none; }
-  body.en [data-fr] { display: none; }
-  body.en [data-en] { display: revert; }
+  [data-en] { display: none !important; }
+  body.en [data-fr] { display: none !important; }
+  body.en [data-en] { display: revert !important; }
 </style>
 
 <nav>
@@ -185,7 +203,8 @@
 </nav>
 
 <header class="hero">
-  <div class="wrap">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
     <div class="eyebrow"><span class="pulse"></span>
       <span data-fr>Disponible pour de nouveaux mandats</span><span data-en>Available for new work</span>
     </div>
@@ -210,6 +229,23 @@
       <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span data-fr>Dépôt 50 %, reste à la livraison</span><span data-en>50% deposit, rest on delivery</span></span>
       <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span data-fr>PR propre + résumé clair</span><span data-en>Clean PR + clear summary</span></span>
       <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span data-fr>100 % async, zéro pression</span><span data-en>100% async, no pressure</span></span>
+    </div>
+    </div>
+    <div class="hero-visual reveal">
+      <div class="terminal" role="img" aria-label="Terminal : des erreurs de production qui passent au vert une fois corrigées">
+        <div class="term-bar">
+          <span class="tdot r"></span><span class="tdot y"></span><span class="tdot g"></span>
+          <span class="term-file">app.log · production</span>
+        </div>
+        <div class="term-body">
+          <div class="tline"><span class="tts">12:04</span><span class="x">✗</span>500 Internal Server Error</div>
+          <div class="tline"><span class="tts">12:04</span><span class="x">✗</span>N+1 query · 1,240 ms</div>
+          <div class="tline"><span class="tts">12:05</span><span class="x">✗</span>webhook timeout</div>
+          <div class="tline cmd"><span class="prompt">$</span>randi fix<span class="caret"></span></div>
+          <div class="tline ok"><span class="tts">12:18</span><span class="c">✓</span>root cause found</div>
+          <div class="tline ok"><span class="tts">12:18</span><span class="c">✓</span>shipped · tests green</div>
+        </div>
+      </div>
     </div>
   </div>
 </header>
