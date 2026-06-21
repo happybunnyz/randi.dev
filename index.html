@@ -122,7 +122,7 @@
   .ic { flex: none; width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center; background: color-mix(in srgb, var(--secondary) 14%, transparent); color: var(--secondary); }
   .fix h3 { font-size: 1.08rem; letter-spacing: -.01em; }
   .fix p { color: var(--fg-soft); font-size: .95rem; margin-top: 4px; }
-  .fix.vibe { grid-column: span 4; border-color: color-mix(in srgb, var(--accent) 45%, var(--border)); background: color-mix(in srgb, var(--accent) 6%, var(--surface)); }
+  .fix.vibe { grid-column: 1 / -1; border-color: color-mix(in srgb, var(--accent) 45%, var(--border)); background: color-mix(in srgb, var(--accent) 6%, var(--surface)); }
   .bento-note { margin-top: 16px; font-size: .85rem; color: var(--fg-soft); }
 
   /* ---------- steps ---------- */
@@ -169,13 +169,17 @@
 
   /* ---------- responsive ---------- */
   @media (max-width: 860px) {
-    .bento { grid-template-columns: 1fr 1fr; }
-    .fix { grid-column: span 1; flex-direction: column; }
+    .bento { grid-template-columns: 1fr; }
+    .fix { grid-column: 1 / -1; }
     .steps, .tiers { grid-template-columns: 1fr; }
   }
   @media (max-width: 560px) {
-    .bento { grid-template-columns: 1fr; }
-    header.hero { padding: 56px 0 40px; }
+    .wrap { padding: 0 18px; }
+    .bento { gap: 12px; }
+    .card, .tier { padding: 22px 20px; }
+    .fix { gap: 14px; }
+    header.hero { padding: 52px 0 36px; }
+    .reassure { gap: 12px; }
   }
   @media (prefers-reduced-motion: reduce) {
     * { animation: none !important; transition: none !important; scroll-behavior: auto; }
