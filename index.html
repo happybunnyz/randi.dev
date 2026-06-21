@@ -104,6 +104,8 @@
   .ic { flex: none; width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center; background: color-mix(in srgb, var(--secondary) 14%, transparent); color: var(--secondary); }
   .fix h3 { font-size: 1.08rem; letter-spacing: -.01em; }
   .fix p { color: var(--fg-soft); font-size: .95rem; margin-top: 4px; }
+  .fix.vibe { grid-column: span 4; border-color: color-mix(in srgb, var(--accent) 45%, var(--border)); background: color-mix(in srgb, var(--accent) 6%, var(--surface)); }
+  .bento-note { margin-top: 16px; font-size: .85rem; color: var(--fg-soft); }
 
   /* ---------- steps ---------- */
   .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; counter-reset: step; }
@@ -252,7 +254,16 @@
           <p data-en>Payments, APIs, webhooks that stopped firing. I reconnect and harden the flow.</p>
         </div>
       </div>
+      <div class="card fix vibe reveal">
+        <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.94 15.5A2 2 0 0 0 8.5 14.06l-6.14-1.58a.5.5 0 0 1 0-.96L8.5 9.94A2 2 0 0 0 9.94 8.5l1.58-6.14a.5.5 0 0 1 .96 0L14.06 8.5A2 2 0 0 0 15.5 9.94l6.14 1.58a.5.5 0 0 1 0 .96L15.5 14.06a2 2 0 0 0-1.44 1.44l-1.58 6.14a.5.5 0 0 1-.96 0z"/><path d="M20 3v4M22 5h-4M4 17v2M5 18H3"/></svg></div>
+        <div>
+          <h3 data-fr>App vibe-codée qui casse</h3><h3 data-en>AI-built app that broke</h3>
+          <p data-fr>Tu as bâti ton app avec Cursor, Lovable, Bolt, v0 ou Claude et là elle plante, refuse de déployer ou fait n'importe quoi? Je rentre dans le code généré, je le comprends et je le rends solide.</p>
+          <p data-en>You built your app with Cursor, Lovable, Bolt, v0 or Claude and now it crashes, won't deploy, or acts up? I dig into the generated code, understand it, and make it solid.</p>
+        </div>
+      </div>
     </div>
+    <p class="bento-note"><span data-fr>Surtout du Laravel et du Vue. Autres stacks (Next.js, React, etc.) au cas par cas, écris-moi.</span><span data-en>Mostly Laravel and Vue. Other stacks (Next.js, React, etc.) case by case, just ask.</span></p>
   </div>
 </section>
 
